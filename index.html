@@ -3,100 +3,171 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KO ARENA | Knight Online Forum</title>
+<title>KO ARENA | Knight Online Türkiye</title>
 <style>
+:root{
+ --bg:#090b0e;--panel:#13171d;--line:#34363b;
+ --red:#d71930;--gold:#f5c36a;--muted:#aab0bb
+}
 *{box-sizing:border-box}
-body{margin:0;background:#0c0e14;color:white;font-family:Arial,sans-serif}
-header{background:#171921;border-bottom:2px solid #c52035;padding:20px}
-nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
-.logo{font-size:30px;font-weight:bold}
-.logo span{color:#ed3045}
-a{color:white;text-decoration:none;margin-right:15px}
-.hero{text-align:center;padding:65px 20px;background:linear-gradient(120deg,#300d18,#141720)}
-.hero h1{font-size:40px}
-.hero h1 span{color:#ed3045}
-button{background:#c52035;color:white;border:0;border-radius:6px;padding:12px 20px;cursor:pointer}
-main{max-width:1100px;margin:30px auto;padding:0 15px}
-.grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
-.panel{background:#191c25;border:1px solid #353946;border-radius:12px;padding:20px;margin-bottom:20px}
-.item{background:#11141b;padding:15px;margin:10px 0;border-radius:8px;border-left:3px solid #c52035}
-.item p{color:#aaa}
-.price{color:#ffcc73}
-.rank{padding:12px;border-bottom:1px solid #333}
-footer{text-align:center;padding:30px;color:#aaa}
-@media(max-width:700px){.grid{grid-template-columns:1fr}}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:#eee;font-family:Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+header{
+ background:linear-gradient(110deg,#160507,#31070e,#08090c);
+ border-bottom:3px solid var(--red);
+ padding:25px 18px
+}
+.brand{max-width:1200px;margin:auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.flag{width:110px;height:73px;background:#e30a17;position:relative;border:2px solid #fa4050;box-shadow:0 0 25px #c00}
+.moon{position:absolute;width:43px;height:43px;border-radius:50%;background:white;top:13px;left:17px}
+.moon:after{content:"";position:absolute;background:#e30a17;width:35px;height:35px;border-radius:50%;top:0;left:12px}
+.star{position:absolute;color:white;font-size:32px;left:60px;top:18px}
+.logo{font-family:Georgia,serif;font-size:clamp(35px,6vw,65px);font-weight:bold;text-shadow:3px 3px #000}
+.logo span{color:#e52839}
+.subtitle{letter-spacing:4px;color:var(--gold);font-size:12px}
+nav{background:#15171b;border-bottom:2px solid #87131e;padding:16px;text-align:center}
+nav a{margin:0 13px;font-weight:bold;font-size:14px}
+nav a:hover{color:#ff4050}
+.container{max-width:1200px;margin:25px auto;padding:0 15px}
+.hero{
+ padding:45px 25px;border:1px solid #80303a;border-radius:10px;
+ background:linear-gradient(110deg,#320910,#12151a);
+ text-align:center
+}
+.hero h1{font-family:Georgia,serif;font-size:36px;color:var(--gold)}
+.hero p{color:#ccc}
+.btn{background:linear-gradient(#ec2538,#920a19);color:white;border:1px solid #f34452;padding:12px 22px;border-radius:5px;cursor:pointer;font-weight:bold}
+.layout{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:20px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:20px;overflow:hidden}
+.panel h2{background:linear-gradient(90deg,#5a1019,#17191d);margin:0;padding:15px;font-size:19px;border-bottom:1px solid #85313b}
+.entry{padding:16px;border-bottom:1px solid #30343a;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.entry:last-child{border:0}
+.entry strong{display:block;margin-bottom:6px}
+.entry small{color:var(--muted)}
+.count{color:var(--gold);font-size:13px;white-space:nowrap}
+.market{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:15px}
+.product{background:#0b0e13;border:1px solid #393c42;border-radius:8px;padding:17px}
+.product h3{margin:0 0 10px}
+.product p{color:var(--muted);font-size:13px}
+.price{color:var(--gold);font-weight:bold}
+.rank{display:flex;align-items:center;gap:12px;padding:12px 15px;border-bottom:1px solid #30343a}
+.emblem{width:38px;height:38px;display:grid;place-items:center;font-family:Georgia,serif;font-size:24px;font-weight:bold;border:2px solid;border-radius:5px;box-shadow:inset 0 0 12px #000,0 0 9px currentColor}
+.gold{color:#ffd267;background:#60400c}
+.silver{color:#e1e6f0;background:#555d69}
+.mirage{color:#ff5549;background:#61130c}
+.shadow{color:#49aaff;background:#103c75}
+.mist{color:#60f5a2;background:#105635}
+.brown{color:#e1a36c;background:#5c321b}
+.rank small{display:block;color:var(--muted);margin-top:4px}
+.notice{padding:18px;line-height:1.7;color:#c9ced5}
+footer{text-align:center;color:#999;padding:30px;border-top:1px solid #333}
+@media(max-width:750px){
+ .layout{grid-template-columns:1fr}
+ .market{grid-template-columns:1fr}
+ nav a{display:inline-block;margin:8px}
+ .flag{width:85px;height:60px}
+ .moon{transform:scale(.75);transform-origin:top left}
+ .star{font-size:25px;left:47px;top:15px}
+}
 </style>
 </head>
 <body>
 <header>
-<nav>
-<div class="logo">KO <span>ARENA</span></div>
-<div>
-<a href="#forum">Forum</a>
-<a href="#pazar">Pazar</a>
-<a href="#rutbe">NP Rütbeleri</a>
+<div class="brand">
+<div class="flag" role="img" aria-label="Türk Bayrağı">
+<div class="moon"></div><div class="star">★</div>
 </div>
-</nav>
-</header>
-<section class="hero">
-<h1>KNIGHT ONLINE <span>ARENA</span></h1>
-<p>Tüm sunucular tek arenada!</p>
-<button onclick="location.href='#forum'">Foruma Gir</button>
-<button onclick="location.href='#pazar'">İtem Pazarı</button>
-</section>
-<main class="grid">
 <div>
+<div class="logo">KO <span>ARENA</span></div>
+<div class="subtitle">KNIGHT ONLINE TÜRKİYE FORUMU</div>
+</div>
+</div>
+</header>
+<nav>
+<a href="#anasayfa">ANA SAYFA</a>
+<a href="#forum">FORUM</a>
+<a href="#pazar">🛒 PAZAR ALANI</a>
+<a href="#rutbeler">NP RÜTBELERİ</a>
+<a href="#sunucular">SUNUCULAR</a>
+</nav>
+<div class="container" id="anasayfa">
+<section class="hero">
+<h1>KO ARENA'YA HOŞ GELDİNİZ</h1>
+<p>Tüm Knight Online oyuncuları tek arenada!</p>
+<p>Forum • İtem Pazarı • Rehberler • Sunucular</p>
+<button class="btn" onclick="location.href='#forum'">FORUMA GİR</button>
+</section>
+<div class="layout">
+<main>
 <section class="panel" id="forum">
-<h2>⚔️ Forum Kategorileri</h2>
-<div class="item">Genel Knight Online</div>
-<div class="item">Sunucu Tartışmaları</div>
-<div class="item">Warrior - Rogue - Mage - Priest</div>
-<div class="item">Rehberler ve Güncellemeler</div>
-<div class="item">Şikâyet ve Güvenlik</div>
-<button onclick="demo()">Yeni Konu Aç</button>
+<h2>KNIGHT ONLINE FORUM</h2>
+<div class="entry"><div><strong>Genel Sohbet</strong><small>Knight Online hakkında her şey</small></div><span class="count">Forum</span></div>
+<div class="entry"><div><strong>Rehberler ve Bilgiler</strong><small>Farm, upgrade ve karakter rehberleri</small></div><span class="count">Rehber</span></div>
+<div class="entry"><div><strong>Sunucu Tartışmaları</strong><small>Resmî ve private sunucular</small></div><span class="count">Sunucu</span></div>
+<div class="entry"><div><strong>Clan Tanıtımları</strong><small>Clan kurma ve oyuncu arama</small></div><span class="count">Clan</span></div>
+<div class="entry"><div><strong>Şikâyet ve Güvenlik</strong><small>Kanıtlı şikâyet ve moderasyon</small></div><span class="count">Destek</span></div>
 </section>
 <section class="panel" id="pazar">
-<h2>🛒 KO ARENA İtem Pazarı</h2>
-<p>Örnek ilanlar - gerçek satış değildir.</p>
-<div class="item">
-<h3>Rogue Dagger +8</h3>
-<p>Sunucu: Pandora</p>
-<b class="price">Fiyat: Teklif Al</b>
+<h2>🛒 PAZAR ALANI</h2>
+<div class="market">
+<div class="product">
+<h3>Rogue İtemleri</h3>
+<p>Dagger, armor ve aksesuar ilanları</p>
+<span class="price">Alım / Satım</span>
 </div>
-<div class="item">
-<h3>Warrior Set</h3>
-<p>Sunucu: Zero</p>
-<b class="price">Fiyat: Teklif Al</b>
+<div class="product">
+<h3>Warrior İtemleri</h3>
+<p>Weapon, armor ve takılar</p>
+<span class="price">Alım / Satım</span>
 </div>
-<div class="item">
-<h3>Ring / Karakter / GB</h3>
-<p>Sunucu: Tüm Sunucular</p>
-<b class="price">Yakında</b>
+<div class="product">
+<h3>Mage / Priest</h3>
+<p>Setler, silahlar ve aksesuarlar</p>
+<span class="price">Alım / Satım</span>
 </div>
-<button onclick="demo()">İlan Ver</button>
+<div class="product">
+<h3>Karakter ve GB</h3>
+<p>Sunucuya göre ilan kategorileri</p>
+<span class="price">Alım / Satım</span>
+</div>
+</div>
+<div class="notice">Pazar şu anda tanıtım aşamasındadır. Gerçek ilan verme sistemi yakında eklenecektir.</div>
 </section>
-</div>
+<section class="panel" id="sunucular">
+<h2>SUNUCU BÖLÜMLERİ</h2>
+<div class="entry">Official Knight Online</div>
+<div class="entry">Pandora</div>
+<div class="entry">Zero</div>
+<div class="entry">Agartha</div>
+<div class="entry">Diğer Sunucular</div>
+<div class="entry">Private Sunucular</div>
+</section>
+</main>
 <aside>
-<section class="panel" id="rutbe">
-<h2>🏆 Arena NP Rütbeleri</h2>
-<div class="rank">🛡️ Yeni Üye - 0 NP</div>
-<div class="rank">⚔️ Savaşçı - 100 NP</div>
-<div class="rank">🥈 Kıdemli - 500 NP</div>
-<div class="rank">🥇 Şövalye - 1500 NP</div>
-<div class="rank">👑 Kraliyet - 5000 NP</div>
-<div class="rank">🏆 Arena Efsanesi - 15000 NP</div>
+<section class="panel" id="rutbeler">
+<h2>KO ARENA NP RÜTBELERİ</h2>
+<div class="rank"><span class="emblem gold">Z</span><div><b>Gold Dragon</b><small>1. sıra</small></div></div>
+<div class="rank"><span class="emblem silver">H</span><div><b>Silver H</b><small>2 - 4. sıra</small></div></div>
+<div class="rank"><span class="emblem mirage">M</span><div><b>Mirage</b><small>5 - 10. sıra</small></div></div>
+<div class="rank"><span class="emblem shadow">S</span><div><b>Shadow</b><small>11 - 40. sıra</small></div></div>
+<div class="rank"><span class="emblem mist">M</span><div><b>Mist</b><small>41 - 100. sıra</small></div></div>
+<div class="rank"><span class="emblem brown">K</span><div><b>Kahverengi K</b><small>101 - 200. sıra</small></div></div>
 </section>
 <section class="panel">
-<h2>📢 Duyurular</h2>
-<p>KO ARENA yakında açılıyor!</p>
+<h2>DUYURULAR</h2>
+<div class="notice">
+<b>KO ARENA açılışa hazırlanıyor!</b>
+<p>Forum üyeliği, konu açma, yorum yazma ve pazar ilanları sonraki güncellemelerde aktif olacak.</p>
+</div>
+</section>
+<section class="panel">
+<h2>TOPLULUK KURALLARI</h2>
+<div class="notice">Saygılı iletişim, güvenli ticaret ve kanıtlı şikâyetler esastır.</div>
 </section>
 </aside>
-</main>
-<footer>© 2026 KO ARENA | Bağımsız oyuncu topluluğu</footer>
-<script>
-function demo(){
-alert("Bu özellik yakında aktif olacak.");
-}
-</script>
+</div>
+</div>
+<footer>© 2026 KO ARENA — Bağımsız Knight Online oyuncu topluluğu</footer>
 </body>
 </html>
