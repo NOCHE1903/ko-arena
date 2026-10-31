@@ -1,425 +1,552 @@
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KO ARENA | Knight Online Türkiye</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0d12">
+<title>KO ARENA | Knight Online Forum & Pazar</title>
 <style>
 :root{
- --red:#c32136;--gold:#f0c47b;--line:#79303b;
- --bg:#090a0e;--panel:#11151c;--muted:#aab5c4;
+ --bg:#090b10;--panel:#151922;--panel2:#1b202b;
+ --red:#a92b3e;--red2:#5e1d2b;--gold:#dfb87c;
+ --line:#3a3540;--text:#f1ede9;--muted:#a5a6b0
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- margin:0;color:#f4f0e9;font-family:Arial,sans-serif;
- background:
- radial-gradient(ellipse at 50% 0%,#5e1424 0%,transparent 42%),
- linear-gradient(#090a0e,#101016 55%,#07080b);
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:Arial,Helvetica,sans-serif;font-size:14px
 }
-a{color:inherit;text-decoration:none}
-button,select{font:inherit}
+button,input{font:inherit}
 button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1320px;margin:auto;padding:0 18px}
+.topline{
+ background:#09090d;border-bottom:1px solid #482530;
+ color:#c5a98b;font-size:11px;padding:10px 0
+}
+.topline .wrap{display:flex;justify-content:space-between;gap:10px}
 .hero{
- min-height:275px;position:relative;overflow:hidden;
- display:flex;align-items:center;justify-content:center;
- text-align:center;padding:40px 15px;
+ min-height:245px;position:relative;overflow:hidden;
  background:
- linear-gradient(0deg,#08080b 0%,transparent 45%),
- radial-gradient(ellipse at 50% 85%,#e64219 0%,#651426 28%,transparent 65%),
- linear-gradient(115deg,#100b16,#371322 55%,#080a10);
- border-bottom:3px solid #b52b38;
+ linear-gradient(90deg,#0b0d13 0%,#15121bc9 35%,#11121ad9 100%),
+ radial-gradient(ellipse at 60% 100%,#b73c2b 0%,transparent 55%),
+ linear-gradient(135deg,#24111d,#0d1017);
+ border-bottom:3px solid #9d2c3d
 }
 .hero:before{
- content:"";position:absolute;inset:0;opacity:.35;
- background:repeating-linear-gradient(
- 120deg,transparent 0 55px,#ef573311 56px 60px);
+ content:"";position:absolute;inset:0;
+ background:
+ repeating-linear-gradient(125deg,transparent 0 100px,#ffffff05 102px 104px),
+ radial-gradient(circle at 72% 100%,#f05c3026,transparent 40%);
+ pointer-events:none
 }
 .hero:after{
- content:"♜   ⚔   ♜";
- position:absolute;bottom:-45px;left:0;right:0;
- font-size:145px;letter-spacing:12vw;color:#0008;
- white-space:nowrap;pointer-events:none;
+ content:"♜";
+ position:absolute;right:7%;bottom:-100px;
+ font-size:360px;color:#0006;line-height:1
 }
-.hero-inner{position:relative;z-index:1}
-.flag{
- font-size:54px;line-height:1;
- filter:drop-shadow(0 0 18px #d52d3b);
+.hero-content{
+ position:relative;z-index:1;min-height:245px;
+ display:flex;align-items:center;justify-content:space-between;
+ gap:25px
 }
-.logo{
- margin:8px 0;font:bold clamp(52px,9vw,112px) Georgia,serif;
- letter-spacing:4px;
- color:#f5d4a0;
- -webkit-text-stroke:1px #5b2b23;
- text-shadow:0 3px #8c2634,0 7px #260c13,
- 0 0 24px #e22a35,0 0 65px #ad1228;
+.brand-kicker{font-size:12px;letter-spacing:4px;color:#dfbd91}
+.brand{
+ margin:8px 0;font:bold clamp(50px,8vw,105px) Georgia,serif;
+ letter-spacing:3px;line-height:1;
+ color:#f0d4a6;
+ text-shadow:0 3px #7b3440,0 7px #2a0c16,0 0 35px #8d273e
 }
-.hero p{margin:0;color:#e9c79c;letter-spacing:3px;font-size:13px}
-.shell{max-width:1350px;margin:auto;padding:0 16px}
-nav{
- background:linear-gradient(#24222a,#0c1017);
- border:1px solid #a22a3b;box-shadow:0 5px 25px #0009;
- display:flex;flex-wrap:wrap;align-items:center;
- margin-top:-2px;position:relative;z-index:2;
+.brand-desc{font-size:13px;color:#d5c7c5;letter-spacing:2px}
+.hero-side{
+ border-left:2px solid #aa4352;padding-left:20px;
+ text-align:right;color:#d7c5b2;max-width:260px
 }
-nav a{padding:16px 15px;font-size:12px;font-weight:bold;border-right:1px solid #43303b}
-nav a:hover,nav a:first-child{background:linear-gradient(#d72b3e,#6d1022)}
-.nav-right{margin-left:auto;padding:7px}
-.nav-right button{background:#9d1b2e;color:white;border:1px solid #df5361;padding:9px 13px;border-radius:3px}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:15px;margin-top:18px}
-.panel{
- background:linear-gradient(145deg,#171c25,#0b0e14);
- border:1px solid var(--line);border-radius:6px;
- overflow:hidden;margin-bottom:15px;
- box-shadow:0 8px 20px #0008;
+.hero-side b{font:25px Georgia,serif;color:#eac18a}
+.hero-side p{font-size:12px;line-height:1.6;color:#b9b0b5}
+.nav{
+ background:#151820;border-bottom:1px solid #69313c;
+ box-shadow:0 6px 25px #0008
 }
-.panel-title{
- padding:13px 16px;font-size:14px;font-weight:bold;
- color:#ffe1ac;
- background:linear-gradient(90deg,#741321,#300f18 70%,#151018);
- border-bottom:1px solid #ae3544;
+.nav-inner{
+ display:flex;align-items:center;flex-wrap:wrap;gap:0
 }
-.panel-body{padding:15px}
-.welcome{
- background:radial-gradient(ellipse at right,#6d2427 0%,transparent 65%),#11131b;
- padding:27px 22px;
+.nav a{
+ padding:17px 15px;font-size:12px;font-weight:bold;
+ border-right:1px solid #292b35
 }
-.welcome h1{font:35px Georgia,serif;color:var(--gold);margin:0 0 8px}
-.welcome p{color:#d0c7c3;line-height:1.6;max-width:700px}
-.btn{
- border:1px solid #e04a5b;border-radius:4px;
- background:linear-gradient(#d52a40,#861326);
- color:white;font-weight:bold;padding:11px 16px;
+.nav a:hover,.nav a.active{background:#82283a;color:#fff}
+.nav .login{
+ margin-left:auto;background:#92283c;color:#fff;
+ border:1px solid #b74a5b;padding:10px 15px;border-radius:4px
 }
-.btn:hover{filter:brightness(1.2)}
-.streams{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.stream{
- background:#10151c;border:1px solid #52323c;border-radius:5px;overflow:hidden
+.page{padding-top:20px;padding-bottom:35px}
+.notice-bar{
+ background:#241a20;border:1px solid #68404a;
+ padding:13px 16px;margin-bottom:18px;border-radius:5px;
+ color:#d5bfae;font-size:12px
 }
-.stream-cover{
- height:100px;display:grid;place-items:center;
+.notice-bar b{color:#f1d19e}
+.section-title{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:10px;margin:0 0 12px
+}
+.section-title h2{
+ margin:0;font:normal 21px Georgia,serif;color:#edcf9f
+}
+.section-title span{font-size:11px;color:#9d9fa9}
+.feature-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:14px;margin-bottom:22px
+}
+.feature{
+ position:relative;min-height:150px;padding:22px;
+ border:1px solid #75404b;border-radius:6px;
  background:
- radial-gradient(circle at 50% 85%,#a63a34,transparent 55%),
- linear-gradient(135deg,#28354a,#180e1c 65%,#491b2b);
- position:relative;font-size:38px;color:#efc184;
+ radial-gradient(circle at 100% 100%,#78283d85,transparent 65%),
+ linear-gradient(130deg,#29202a,#131720);
+ overflow:hidden
 }
-.live-tag{
- position:absolute;top:7px;left:7px;background:#a52336;
- padding:5px 7px;border-radius:3px;font-size:10px;color:white;
+.feature:after{
+ content:attr(data-symbol);
+ position:absolute;right:13px;bottom:-30px;
+ font:120px Georgia,serif;color:#ffffff0b
 }
-.stream-name{padding:10px;font-size:12px;font-weight:bold}
-.stream-name small{display:block;color:var(--muted);margin-top:5px;font-weight:normal}
-.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:15px}
-.quick{
- min-height:105px;padding:15px 8px;text-align:center;
- background:linear-gradient(135deg,#51202a,#16161e);
- border:1px solid #8a3841;border-radius:5px;
+.feature small{color:#e2b984;letter-spacing:2px;font-size:10px}
+.feature h3{font:26px Georgia,serif;margin:10px 0;color:#f0e0c9}
+.feature p{font-size:12px;color:#bcb7bb;line-height:1.5;max-width:250px}
+.feature a{color:#edc18b;font-size:12px;font-weight:bold}
+.main-grid{
+ display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:17px
 }
-.quick .qicon{font-size:29px;margin-bottom:8px;color:var(--gold)}
-.quick b{display:block;font-size:13px}
-.quick small{display:block;color:#c2b7b8;margin-top:5px;font-size:10px}
+.panel{
+ background:linear-gradient(145deg,#181c25,#11141b);
+ border:1px solid #46333d;border-radius:5px;
+ margin-bottom:17px;overflow:hidden
+}
+.panel-head{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:10px;padding:14px 16px;
+ background:linear-gradient(90deg,#55212e,#25202a 75%);
+ border-bottom:1px solid #74404a
+}
+.panel-head h2{
+ margin:0;font-size:13px;letter-spacing:.5px;color:#efd0a2
+}
+.panel-head a,.panel-head small{font-size:11px;color:#d4b09b}
+.panel-body{padding:16px}
+.market-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px
+}
+.market-card{
+ padding:16px;min-height:120px;border-radius:5px;
+ border:1px solid #55404a;
+ background:linear-gradient(145deg,#24212a,#121720)
+}
+.market-card .mark{color:#c99b70;font-size:22px;margin-bottom:10px}
+.market-card b{display:block;font-size:13px;color:#f1e3d1}
+.market-card p{font-size:11px;color:#9ea5b1;line-height:1.5}
+.server-list{display:flex;flex-wrap:wrap;gap:8px}
+.server{
+ padding:10px 13px;border:1px solid #59414a;
+ background:#20202a;color:#d6c9c7;border-radius:4px;
+ font-size:12px
+}
+.server:hover,.server.selected{
+ background:#78283a;border-color:#bd5360;color:white
+}
 .forum-row{
- display:grid;grid-template-columns:minmax(0,1fr) 85px 90px;
- align-items:center;gap:10px;padding:14px;
- border-bottom:1px solid #313640;
+ display:grid;grid-template-columns:minmax(0,1fr) 78px 110px;
+ gap:10px;align-items:center;padding:15px 16px;
+ border-bottom:1px solid #30313b
 }
 .forum-row:last-child{border-bottom:0}
-.forum-row b{font-size:13px}
-.forum-row small{display:block;color:#94b8d0;margin-top:5px;font-size:11px}
-.stat{text-align:center;color:#e2c49a;font-size:12px}
-.stat small{color:#8b9bab}
-.market-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.item{border:1px solid #40313b;border-radius:5px;padding:13px;background:#12131a}
-.item b{font-size:13px}
-.item p{color:#aeb7c2;font-size:11px}
-.price{color:#f0c47b;font-weight:bold;font-size:14px}
-.tag{display:inline-block;background:#174b36;color:#9ee4b5;padding:4px 7px;border-radius:3px;font-size:10px}
+.forum-row b{font-size:13px;color:#eee4d7}
+.forum-row p{margin:6px 0 0;font-size:11px;color:#9ba4b0}
+.forum-stat{text-align:center;color:#d2ad80;font-size:12px}
+.forum-stat small{display:block;color:#89919e;margin-top:4px}
+.topic{
+ padding:13px 15px;border-bottom:1px solid #30313b;
+ display:flex;align-items:center;gap:12px
+}
+.topic:last-child{border-bottom:0}
+.topic-icon{
+ width:34px;height:34px;display:grid;place-items:center;
+ border:1px solid #784351;border-radius:5px;
+ color:#d4a17e;background:#2a1e28;flex-shrink:0
+}
+.topic b{display:block;font-size:12px;font-weight:normal;color:#e9e3de}
+.topic small{display:block;margin-top:5px;font-size:10px;color:#9aa4b1}
 .ad{
- min-height:150px;padding:18px;text-align:center;
- display:flex;flex-direction:column;align-items:center;justify-content:center;
- background:
- radial-gradient(circle at center,#6d2930,transparent 65%),
- linear-gradient(135deg,#18151b,#30202a);
- border:1px dashed #a67b4b;
+ min-height:125px;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;text-align:center;
+ border:1px dashed #8e6556;border-radius:4px;
+ background:linear-gradient(140deg,#282027,#171820)
 }
-.ad strong{font:23px Georgia,serif;color:var(--gold)}
-.ad small{color:#d6b1a5;margin-top:8px}
-.ranks{display:grid;gap:5px;padding:10px}
-.rank{
- display:grid;grid-template-columns:55px 1fr auto;
- align-items:center;gap:8px;padding:7px;
- border-bottom:1px solid #33303a;
+.ad b{font:23px Georgia,serif;color:#d9b684}
+.ad small{margin-top:7px;color:#a6a0a4}
+.side-row{
+ padding:13px 15px;border-bottom:1px solid #34313b;
+ font-size:12px;color:#e3dbd4
 }
-.rank:last-child{border:0}
-.rank b{font-size:12px}
-.rank small{color:#a4a9b4;font-size:10px}
-.insignia{
- width:49px;height:39px;display:grid;place-items:center;
- font:bold 22px Georgia,serif;color:#f4c773;
- text-shadow:0 2px #4a2c13,0 0 8px #9d662e;
- background:linear-gradient(135deg,#42301e,#13171d);
- border:1px solid #8d673a;border-radius:4px;
+.side-row:last-child{border:0}
+.side-row small{display:block;color:#9ca4b0;margin-top:6px}
+.stream{
+ display:flex;align-items:center;gap:10px;
+ padding:13px;border-bottom:1px solid #34313b
 }
-.insignia.silver{color:#e0e5f1;text-shadow:0 1px #555}
-.insignia.bronze{color:#cf9860}
-.teams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-.team{
- border:1px solid #4e3841;background:#171b23;color:#eaeaea;
- border-radius:4px;padding:10px 5px;font-size:11px;text-align:left;
+.stream:last-child{border:0}
+.avatar{
+ width:36px;height:36px;border-radius:5px;
+ display:grid;place-items:center;background:#38232e;
+ color:#d8ae87;border:1px solid #714052;font-weight:bold
 }
-.team.selected{border-color:#f0c47b;background:#4d2430}
-.team-mark{
- display:inline-grid;place-items:center;width:25px;height:25px;
- border:1px solid #a78b62;border-radius:50%;
- color:#efc87b;font-size:9px;font-weight:bold;margin-right:4px;
+.stream b{display:block;font-size:12px}
+.stream small{display:block;margin-top:5px;color:#9fa4b0;font-size:10px}
+.placeholder{
+ padding:18px;color:#aeb2bd;font-size:12px;line-height:1.6
 }
-.profile{padding:12px;margin-top:12px;border:1px solid #5b3d45;background:#0b0f16}
-.profile b{color:var(--gold)}
-.profile p{margin:7px 0 0;color:#c7c4c9;font-size:12px}
-.notice{padding:12px 14px;border-bottom:1px solid #34303b;font-size:12px}
-.notice:last-child{border:0}
-.notice small{display:block;color:#99a5b4;margin-top:5px}
-.footer{text-align:center;color:#a89b9c;padding:30px 10px;border-top:1px solid #53232d;font-size:12px}
-.muted{color:#aab5c4;font-size:12px;line-height:1.5}
-@media(max-width:900px){
- .layout{grid-template-columns:1fr}
- .streams{grid-template-columns:repeat(2,1fr)}
+.footer{
+ background:#101218;border-top:1px solid #5d2c37;
+ padding:30px 0;color:#8f929e;text-align:center;font-size:12px
 }
-@media(max-width:600px){
- .quick-grid{grid-template-columns:repeat(2,1fr)}
- .market-grid{grid-template-columns:1fr}
- .forum-row{grid-template-columns:minmax(0,1fr) 60px}
+.footer b{color:#d7b27e}
+@media(max-width:950px){
+ .main-grid{grid-template-columns:1fr}
+ .hero-side{display:none}
+}
+@media(max-width:650px){
+ .feature-grid{grid-template-columns:1fr}
+ .market-grid{grid-template-columns:1fr 1fr}
+ .forum-row{grid-template-columns:minmax(0,1fr) 65px}
  .forum-row .last{display:none}
- .logo{letter-spacing:0}
- nav a{padding:12px 10px}
- .nav-right{margin-left:0}
+ .brand{letter-spacing:0}
+ .hero,.hero-content{min-height:205px}
+ .nav .login{margin:8px 0}
+}
+@media(max-width:420px){
+ .market-grid{grid-template-columns:1fr}
+ .topline .wrap{flex-direction:column}
 }
 </style>
 </head>
 <body>
 
+<div class="topline">
+ <div class="wrap">
+  <span>KNIGHT ONLINE TÜRKİYE TOPLULUĞU</span>
+  <span>FORUM • POLEMİK • PAZAR</span>
+ </div>
+</div>
+
 <header class="hero">
- <div class="hero-inner">
-  <div class="flag">🇹🇷</div>
-  <div class="logo">KO ARENA</div>
-  <p>KNIGHT ONLINE TÜRKİYE'NİN TOPLULUK PLATFORMU</p>
+ <div class="wrap hero-content">
+  <div>
+   <div class="brand-kicker">KNIGHT ONLINE</div>
+   <div class="brand">KO ARENA</div>
+   <div class="brand-desc">FORUM & PAZAR PLATFORMU</div>
+  </div>
+  <div class="hero-side">
+   <b>NOCHE</b>
+   <p>Oyuncuların buluştuğu, rekabetin konuşulduğu arena.</p>
+  </div>
  </div>
 </header>
 
-<div class="shell">
-<nav>
- <a href="#home">ANA SAYFA</a>
- <a href="#forum">FORUM</a>
- <a href="#market">PAZAR ALANI</a>
- <a href="#streams">YAYINCILAR</a>
- <a href="#ranks">RÜTBELER</a>
- <a href="#teams">TAKIMLAR</a>
- <div class="nav-right"><button onclick="comingSoon()">ÜYE OL / GİRİŞ</button></div>
-</nav>
-
-<div class="layout" id="home">
-<main>
-
-<section class="panel">
- <div class="welcome">
-  <h1>KO ARENA'YA HOŞ GELDİN</h1>
-  <p>Knight Online Türkiye'nin yeni buluşma noktası. Forumlarda tartış, sunucuları keşfet, item pazarını incele, yayıncıları takip et ve topluluğun bir parçası ol.</p>
-  <button class="btn" onclick="comingSoon()">+ YENİ KONU AÇ</button>
+<div class="nav">
+ <div class="wrap nav-inner">
+  <a class="active" href="#anasayfa">ANA SAYFA</a>
+  <a href="#forum">FORUM</a>
+  <a href="#pazar">PAZAR ALANI</a>
+  <a href="#polemik">ARENA MEYDANI</a>
+  <a href="#sunucular">SUNUCULAR</a>
+  <a href="#yayincilar">YAYINCILAR</a>
+  <a href="cekilis.html">ÇEKİLİŞ</a>
+  <button class="login" onclick="yakinda()">GİRİŞ / KAYIT OL</button>
  </div>
-</section>
-
-<section class="panel" id="streams">
- <div class="panel-title">◉ CANLI YAYINCILAR</div>
- <div class="panel-body">
-  <div class="streams">
-   <div class="stream">
-    <div class="stream-cover">⚔<span class="live-tag">ÖRNEK</span></div>
-    <div class="stream-name">Yayıncı 01<small>Yayın durumu bağlanacak</small></div>
-   </div>
-   <div class="stream">
-    <div class="stream-cover">♜<span class="live-tag">ÖRNEK</span></div>
-    <div class="stream-name">Yayıncı 02<small>Twitch entegrasyonu yakında</small></div>
-   </div>
-   <div class="stream">
-    <div class="stream-cover">✦<span class="live-tag">ÖRNEK</span></div>
-    <div class="stream-name">Yayıncı 03<small>Yayın durumu bağlanacak</small></div>
-   </div>
-   <div class="stream">
-    <div class="stream-cover">♛<span class="live-tag">ÖRNEK</span></div>
-    <div class="stream-name">Yayıncı 04<small>Twitch entegrasyonu yakında</small></div>
-   </div>
-  </div>
-  <p class="muted">Bu kartlar örnektir. Gerçek canlı yayın bilgileri Twitch bağlantısı kurulduğunda gösterilecek.</p>
- </div>
-</section>
-
-<div class="quick-grid">
- <a class="quick" href="#market"><div class="qicon">♜</div><b>PAZAR ALANI</b><small>Item ilanları</small></a>
- <a class="quick" href="#forum"><div class="qicon">▤</div><b>REHBERLER</b><small>Bilgi ve taktikler</small></a>
- <a class="quick" href="#forum"><div class="qicon">⚔</div><b>SUNUCULAR</b><small>Sunucu tartışmaları</small></a>
- <a class="quick" href="#forum"><div class="qicon">♛</div><b>CLANLAR</b><small>Klan tanıtımları</small></a>
 </div>
 
-<section class="panel" id="forum">
- <div class="panel-title">▤ FORUM KATEGORİLERİ</div>
- <div class="forum-row">
-  <div><b>Genel Sohbet</b><small>Knight Online gündemi ve oyuncu sohbetleri</small></div>
-  <div class="stat">—<small>Konular</small></div>
-  <div class="stat last">Yakında</div>
- </div>
- <div class="forum-row">
-  <div><b>Rehberler ve Bilgiler</b><small>Farm, PvP, karakter ve upgrade rehberleri</small></div>
-  <div class="stat">—<small>Konular</small></div>
-  <div class="stat last">Yakında</div>
- </div>
- <div class="forum-row">
-  <div><b>Sunucu Tartışmaları</b><small>Resmî ve özel sunucular hakkında</small></div>
-  <div class="stat">—<small>Konular</small></div>
-  <div class="stat last">Yakında</div>
- </div>
- <div class="forum-row">
-  <div><b>Clan Tanıtımları</b><small>Clanını tanıt, oyuncu bul, ittifak kur</small></div>
-  <div class="stat">—<small>Konular</small></div>
-  <div class="stat last">Yakında</div>
- </div>
- <div class="forum-row">
-  <div><b>Şikâyet ve Güvenlik</b><small>Dolandırıcılık bildirimleri ve moderasyon</small></div>
-  <div class="stat">—<small>Konular</small></div>
-  <div class="stat last">Yakında</div>
- </div>
-</section>
+<div class="wrap page" id="anasayfa">
 
-<section class="panel" id="market">
- <div class="panel-title">🛒 PAZAR ALANI</div>
- <div class="panel-body">
-  <div class="market-grid">
-   <div class="item"><b>Silah ve Item Satışı</b><p>Silah, armor, aksesuar ilanları</p><span class="tag">Yakında</span></div>
-   <div class="item"><b>Ring ve Takı</b><p>Ring, kolye ve belt ilanları</p><span class="tag">Yakında</span></div>
-   <div class="item"><b>Karakter Satışı</b><p>Rogue, Warrior, Mage, Priest</p><span class="tag">Yakında</span></div>
-   <div class="item"><b>Diğer İlanlar</b><p>Sunucu bazlı pazar kategorileri</p><span class="tag">Yakında</span></div>
+ <div class="notice-bar">
+  <b>KO ARENA'YA HOŞ GELDİN!</b>
+  Knight Online gündemini takip et, tartışmalara katıl
+  ve pazar ilanlarını keşfet.
+ </div>
+
+ <div class="feature-grid">
+  <div class="feature" data-symbol="⚔">
+   <small>TOPLULUK</small>
+   <h3>ARENA MEYDANI</h3>
+   <p>Klan rekabetleri, yayıncı polemikleri ve oyuncu tartışmaları.</p>
+   <a href="#polemik">Tartışmaları keşfet →</a>
   </div>
-  <p class="muted">Gerçek ilan verme, fiyat ve mesajlaşma sistemi henüz kurulmadı.</p>
- </div>
-</section>
-
-<section class="panel">
- <div class="panel-title">DUYURULAR</div>
- <div class="notice">KO ARENA'nın yeni tasarımı hazırlanıyor.<small>Geliştirme aşaması</small></div>
- <div class="notice">Üyelik ve pazar sistemleri sonraki aşamada açılacak.<small>Geliştirme aşaması</small></div>
- <div class="notice">Twitch yayıncı entegrasyonu planlanıyor.<small>Geliştirme aşaması</small></div>
-</section>
-
-</main>
-
-<aside>
-
-<section class="panel">
- <div class="panel-title">REKLAM VER</div>
- <div class="panel-body">
-  <div class="ad"><strong>KO ARENA</strong><small>SPONSOR REKLAM ALANI</small></div>
- </div>
-</section>
-
-<section class="panel" id="ranks">
- <div class="panel-title">★ ASKERÎ ÜYE RÜTBELERİ</div>
- <div class="ranks" id="rankList"></div>
- <div class="panel-body">
-  <p class="muted">Her rütbenin farklı işareti vardır. Bunlar şimdilik stilize sembollerdir; ayrıntılı askerî arma görselleri ayrıca hazırlanacak.</p>
- </div>
-</section>
-
-<section class="panel" id="teams">
- <div class="panel-title">SÜPER LİG TAKIMINI SEÇ</div>
- <div class="panel-body">
-  <p class="muted">Profilinde göstermek istediğin takımı seç.</p>
-  <div class="teams" id="teamList"></div>
-  <div class="profile">
-   <b>ÜYE PROFİLİ — ÖNİZLEME</b>
-   <p id="teamResult">Takım seçilmedi</p>
-   <p>Askerî rütbe: Albay</p>
+  <div class="feature" data-symbol="◆">
+   <small>TİCARET</small>
+   <h3>PAZAR ALANI</h3>
+   <p>Sunucuna göre item, takı ve karakter ilanlarını incele.</p>
+   <a href="#pazar">Pazara git →</a>
   </div>
-  <p class="muted">Seçimin bu tarayıcıda saklanır. Gerçek takım armaları ve üyelik hesabına kaydetme özelliği sonraki aşamada eklenecek.</p>
+  <div class="feature" data-symbol="✦">
+   <small>BİLGİ</small>
+   <h3>REHBERLER</h3>
+   <p>PvP, farm, upgrade ve karakter geliştirme tartışmaları.</p>
+   <a href="#forum">Forumu incele →</a>
+  </div>
  </div>
-</section>
 
-<section class="panel">
- <div class="panel-title">TOPLULUK İSTATİSTİKLERİ</div>
- <div class="panel-body">
-  <p class="muted">Üye, konu, mesaj ve çevrim içi kullanıcı sayıları gerçek veritabanı kurulduğunda burada görünecek.</p>
+ <div class="main-grid">
+ <main>
+
+  <section class="panel" id="pazar">
+   <div class="panel-head">
+    <h2>PAZAR ALANI</h2>
+    <a href="#sunucular">Sunucu seç →</a>
+   </div>
+   <div class="panel-body">
+    <div class="market-grid">
+     <div class="market-card">
+      <div class="mark">◆</div>
+      <b>Item ve Ekipman</b>
+      <p>Silah, armor ve diğer eşyalar</p>
+     </div>
+     <div class="market-card">
+      <div class="mark">✧</div>
+      <b>Takı ve Aksesuar</b>
+      <p>Ring, pendant, belt ve takılar</p>
+     </div>
+     <div class="market-card">
+      <div class="mark">♜</div>
+      <b>Karakter Pazarı</b>
+      <p>Rogue, Warrior, Mage ve Priest</p>
+     </div>
+    </div>
+    <p style="font-size:11px;color:#9ba3af;margin:14px 0 0">
+     Gerçek ilan sistemi üyelik altyapısı kurulduğunda açılacak.
+    </p>
+   </div>
+  </section>
+
+  <section class="panel" id="sunucular">
+   <div class="panel-head">
+    <h2>SUNUCU KANALLARI</h2>
+    <small>Sunucu seçerek ilgili bölümü görüntüle</small>
+   </div>
+   <div class="panel-body">
+    <div class="server-list" id="serverButtons"></div>
+    <p id="serverDescription" style="font-size:12px;color:#b9aeb0;margin-bottom:0"></p>
+   </div>
+  </section>
+
+  <section class="panel" id="forum">
+   <div class="panel-head">
+    <h2>FORUM KATEGORİLERİ</h2>
+    <small>Konu ve mesaj sayıları yakında</small>
+   </div>
+   <div id="forumRows"></div>
+  </section>
+
+  <section class="panel" id="polemik">
+   <div class="panel-head">
+    <h2>ARENA MEYDANI — POLEMİK</h2>
+    <small>Örnek konu başlıkları</small>
+   </div>
+   <div class="topic">
+    <div class="topic-icon">⚔</div>
+    <div>
+     <b>Hangi sunucuda PvP rekabeti daha güçlü?</b>
+     <small>Genel tartışma • Örnek konu</small>
+    </div>
+   </div>
+   <div class="topic">
+    <div class="topic-icon">◆</div>
+    <div>
+     <b>Clan savaşları ve meydan okumalar</b>
+     <small>Arena Meydanı • Örnek konu</small>
+    </div>
+   </div>
+   <div class="topic">
+    <div class="topic-icon">✦</div>
+    <div>
+     <b>Yayıncılar ve Knight Online gündemi</b>
+     <small>Topluluk • Örnek konu</small>
+    </div>
+   </div>
+  </section>
+
+  <section class="panel">
+   <div class="panel-head">
+    <h2>SON TARTIŞMALAR</h2>
+    <small>Canlı akış yakında</small>
+   </div>
+   <div class="placeholder">
+    Üyeler konu açmaya ve yorum yapmaya başladığında,
+    en son cevaplanan konular burada otomatik sıralanacak.
+   </div>
+  </section>
+
+ </main>
+
+ <aside>
+
+  <section class="panel">
+   <div class="panel-head"><h2>SPONSOR ALANI</h2></div>
+   <div class="panel-body">
+    <div class="ad">
+     <b>KO ARENA</b>
+     <small>REKLAM ALANI</small>
+    </div>
+   </div>
+  </section>
+
+  <section class="panel" id="yayincilar">
+   <div class="panel-head"><h2>TWITCH YAYINCILARI</h2></div>
+   <div class="stream">
+    <div class="avatar">T</div>
+    <div>
+     <b>Yayıncı listesi hazırlanıyor</b>
+     <small>Gerçek Twitch bağlantısı kurulacak</small>
+    </div>
+   </div>
+   <div class="placeholder">
+    Yayıncıların canlı veya çevrimdışı durumu,
+    Twitch entegrasyonundan sonra burada gösterilecek.
+   </div>
+  </section>
+
+  <section class="panel">
+   <div class="panel-head"><h2>DUYURULAR</h2></div>
+   <div class="side-row">
+    KO ARENA geliştirme süreci başladı.
+    <small>Resmî duyuru</small>
+   </div>
+   <div class="side-row">
+    Forum ve pazar sistemleri hazırlanıyor.
+    <small>Geliştirme aşamasında</small>
+   </div>
+  </section>
+
+  <section class="panel">
+   <div class="panel-head"><h2>TOPLULUK</h2></div>
+   <div class="placeholder">
+    Gerçek üye, konu, mesaj ve çevrim içi kullanıcı
+    sayıları veritabanı kurulduğunda gösterilecek.
+   </div>
+  </section>
+
+  <section class="panel">
+   <div class="panel-head"><h2>REKLAM VER</h2></div>
+   <div class="panel-body">
+    <div class="ad">
+     <b>SPONSOR</b>
+     <small>300 × 250 REKLAM ALANI</small>
+    </div>
+   </div>
+  </section>
+
+ </aside>
  </div>
-</section>
-
-<section class="panel">
- <div class="panel-title">İKİNCİ REKLAM ALANI</div>
- <div class="panel-body">
-  <div class="ad"><strong>SPONSOR</strong><small>300 × 250 BANNER</small></div>
- </div>
-</section>
-
-</aside>
 </div>
-</div>
 
-<footer class="footer">© 2026 KO ARENA — Knight Online Türkiye Topluluğu</footer>
+<footer class="footer">
+ <div class="wrap">
+  <b>KO ARENA</b>
+  <p>Knight Online Forum & Pazar Topluluğu</p>
+  <p>© 2026 KO ARENA</p>
+ </div>
+</footer>
 
 <script>
-const ranks=[
- ["Er","⌃","bronze"],
- ["Onbaşı","⌃⌃","bronze"],
- ["Çavuş","≋","bronze"],
- ["Astsubay","≋★","bronze"],
- ["Teğmen","│","silver"],
- ["Üsteğmen","││","silver"],
- ["Yüzbaşı","│││","silver"],
- ["Binbaşı","✿","gold"],
- ["Yarbay","✿★","gold"],
- ["Albay","✿★★","gold"],
- ["Tuğgeneral","★","gold"],
- ["Tümgeneral","★★","gold"],
- ["Korgeneral","★★★","gold"],
- ["Orgeneral","★★★★","gold"]
+const categories = [
+ ["Knight Online Genel Tartışma",
+  "Tüm sunucuların ortak gündemi ve oyuncu sohbetleri"],
+ ["Arena Meydanı",
+  "Polemikler, rekabetler ve karşılıklı tartışmalar"],
+ ["Rehberler ve Taktikler",
+  "PvP, farm, upgrade ve karakter geliştirme"],
+ ["Clan ve Oyuncu Toplulukları",
+  "Clan tanıtımları, oyuncu arayışları ve etkinlikler"],
+ ["Pazar Tartışmaları",
+  "Fiyat değerlendirmeleri ve ticaret gündemi"]
 ];
 
-document.getElementById("rankList").innerHTML=ranks.map(r=>`
- <div class="rank">
-  <span class="insignia ${r[2]}">${r[1]}</span>
-  <b>${r[0]}</b>
-  <small>KO ARENA</small>
- </div>
-`).join("");
-
-const teams=[
- "Beşiktaş","Galatasaray","Fenerbahçe","Trabzonspor",
- "Başakşehir","Samsunspor","Göztepe","Konyaspor",
- "Antalyaspor","Alanyaspor","Kasımpaşa","Gaziantep FK",
- "Kayserispor","Çaykur Rizespor","Eyüpspor",
- "Gençlerbirliği","Kocaelispor","Fatih Karagümrük",
- "Takım tutmuyorum"
+const servers = [
+ "Tüm Sunucular",
+ "Pandora",
+ "Zero",
+ "Agartha",
+ "Diğer Resmî Sunucular",
+ "Özel Sunucular"
 ];
 
-let chosen=localStorage.getItem("koarena_team")||"";
+let activeServer = "Tüm Sunucular";
 
-function renderTeams(){
- document.getElementById("teamList").innerHTML=teams.map((t,i)=>`
-  <button class="team ${chosen===t?"selected":""}" onclick="chooseTeam(${i})">
-   <span class="team-mark">${t==="Takım tutmuyorum"?"—":t.substring(0,2).toUpperCase()}</span>
-   ${t}
-  </button>
- `).join("");
- document.getElementById("teamResult").textContent=
-  chosen?"Takım: "+chosen:"Takım seçilmedi";
+function escapeHtml(value) {
+ return String(value).replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",
+  '"':"&quot;","'":"&#39;"
+ })[c]);
 }
 
-function chooseTeam(i){
- chosen=teams[i];
- localStorage.setItem("koarena_team",chosen);
- renderTeams();
+function drawServers() {
+ document.getElementById("serverButtons").innerHTML =
+  servers.map((s,i) => `
+   <button class="server ${s===activeServer?"selected":""}"
+    onclick="chooseServer(${i})">
+    ${escapeHtml(s)}
+   </button>
+  `).join("");
+
+ document.getElementById("serverDescription").textContent =
+  activeServer === "Tüm Sunucular"
+   ? "Bütün Knight Online oyuncularının ortak forumu."
+   : activeServer + " sunucusunun forum ve pazar bölümü.";
 }
 
-function comingSoon(){
- alert("Bu özellik üyelik ve veritabanı sistemi kurulduğunda aktif olacak.");
+function drawForum() {
+ let rows = activeServer === "Tüm Sunucular"
+  ? categories
+  : [
+   [activeServer+" Genel Sohbet","Sunucu gündemi ve oyuncu tartışmaları"],
+   [activeServer+" Clan Bölümü","Clan tanıtımları ve rekabetler"],
+   [activeServer+" Pazar","Bu sunucuya özel alım ve satım ilanları"],
+   [activeServer+" Polemik","Oyuncuların ve clanların tartışmaları"]
+  ];
+
+ document.getElementById("forumRows").innerHTML =
+  rows.map(r => `
+   <div class="forum-row">
+    <div>
+     <b>${escapeHtml(r[0])}</b>
+     <p>${escapeHtml(r[1])}</p>
+    </div>
+    <div class="forum-stat">
+     —
+     <small>Konular</small>
+    </div>
+    <div class="forum-stat last">
+     Yakında
+     <small>Son mesaj</small>
+    </div>
+   </div>
+  `).join("");
 }
 
-renderTeams();
+function chooseServer(i) {
+ activeServer = servers[i];
+ drawServers();
+ drawForum();
+ document.getElementById("forum")
+  .scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function yakinda() {
+ alert("Üyelik sistemi sonraki aşamada açılacak.");
+}
+
+drawServers();
+drawForum();
 </script>
 </body>
 </html>
